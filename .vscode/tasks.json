@@ -1,0 +1,63 @@
+{
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "g++ build and debug", // 编译C++的task，供launch.json使用
+            "command": "C:/mingw64/bin/x86_64-w64-mingw32-g++", // 这里写存放mingw的路径
+            "args": [ // 下面是编译参数
+                "-fdiagnostics-color=always", // 强制编译器在输出错误和警告信息时使用颜色，便于阅读
+                "-g", // 生成调试信息
+                "-Wall", // 启用所有警告
+                "-std=c++20", // 使用C++20作为标准进行编译
+                "-lm", // 链接到数学库
+                "${file}",
+                "-o",
+                "${fileDirname}\\${fileBasenameNoExtension}.exe"
+            ],
+            "options": {
+                "cwd": "C:/mingw64/bin" // 这里写存放mingw的路径
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "new"
+            },
+            "detail": "调试器生成的任务。"
+        },
+        {
+            "type": "cppbuild",
+            "label": "gcc build and debug", // 编译C的task，供launch.json使用
+            "command": "C:/mingw64/bin/x86_64-w64-mingw32-gcc", // 这里写存放mingw的路径
+            "args": [
+                "-fdiagnostics-color=always", // 强制编译器在输出错误和警告信息时使用颜色，便于阅读
+                "-g", // 生成调试信息
+                "-Wall", // 启用所有警告
+                "-std=c17", // 使用C17作为标准进行编译
+                "-lm", // 链接到数学库
+                "${file}",
+                "-o",
+                "${fileDirname}\\${fileBasenameNoExtension}.exe"
+            ],
+            "options": {
+                "cwd": "C:/mingw64/bin" // 这里写存放mingw的路径
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "调试器生成的任务。"
+        }
+    ],
+    "version": "2.0.0"
+}
